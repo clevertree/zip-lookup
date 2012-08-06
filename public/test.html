@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
+        <script src="jszipcode/zipLookup.js" type="text/javascript" ></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('[name=zipcode]').blur(function(){
+                    $.zipLookup(
+                        $(this).val(),
+                        function(cityName, stateName, stateShortName){
+                            $('input[name=city]').val(cityName);
+                            $('input[name=state_short]').val(stateName);
+                            $('input[name=state]').val(stateShortName);
+                        },
+                        function(){
+                            $('.message').html("Zipcode Not Found");
+                        });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Enter ZipCode:</td>
+                    <td><input type='text' name='zipcode' /></td>
+                </tr>
+                <tr>
+                    <td>Enter City:</td>
+                    <td><input type='text' name='city' /></td>
+                </tr>
+                <tr>
+                    <td>Enter State Abbr.:</td>
+                    <td><input type='text' name='state_short' /></td>
+                </tr>
+                <tr>
+                    <td>Enter State:</td>
+                    <td><input type='text' name='state' /></td>
+                </tr>
+                <tr>
+                    <td class='message' colspan="2"></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
