@@ -1,6 +1,8 @@
 /*
  * $.zipLookup v0.1
+ *   - by Ari Asulin (ari.asulin at gmail.com)
  *   - jQuery plugin to dynamically fill in City/State Form Fields using an ajax Zipcode lookup
+ *   - Apache License, Version 2.0
  *
  */
 
