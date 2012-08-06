@@ -44,7 +44,7 @@
             }
 
             if(!parseInt(zipVal))
-                s.onNotFound("Invalid zip code: "+ zipVal);
+                return s.onNotFound("Invalid zip code: "+ zipVal);
             zipVal = parseInt(zipVal);
             var zipGroup = parseInt(zipVal / 100);
             var zipSet = parseInt(zipVal % 100);
