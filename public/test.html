@@ -13,6 +13,7 @@
                             $('input[name=city]').val(cityName);
                             $('input[name=state_short]').val(stateName);
                             $('input[name=state]').val(stateShortName);
+                            $('.message').html("Found Zipcode");
                         },
                         function(errMsg){
                             $('.message').html("Error: " + errMsg);
