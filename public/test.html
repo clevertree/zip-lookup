@@ -6,6 +6,9 @@
         <script src="ziplookup/zipLookup.min.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function() {                                  // When the document loads,
+
+                $.zipLookupSettings.libDirPath = 'ziplookup/'               // (Optionally) set the library folder path manually
+
                 $('[name=zipcode]').blur(function(){                        // Set on blur
                     $.zipLookup(                                            // Do a Zip code Lookup
                         $(this).val(),                                      // Zip code Field Value
