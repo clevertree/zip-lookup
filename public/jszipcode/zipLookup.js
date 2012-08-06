@@ -38,7 +38,7 @@
 				var libDirPath = $("script[src*='zipLookup.js'],script[src*='zipLookup.min.js']").attr('src');
 				if(libDirPath)
 				{
-					s.libDirPath = libDirPath.replace('zipLookup.js', '');
+					s.libDirPath = libDirPath.replace('zipLookup.js', '').replace('zipLookup.min.js', '');
 				}
 				else s.libDirPath = 'jszipcode/';
 			}
