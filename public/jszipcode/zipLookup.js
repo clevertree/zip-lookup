@@ -19,7 +19,7 @@
             libDirPath: null, // 'jszipcode/',
             dbPath: 'db/',
             country: 'us',
-            onLookup: function () {},
+            onFound: function () {},
             onNotFound: function () {},
             onError: function () {}
         },
@@ -27,7 +27,7 @@
         zipLookup: function( zipVal, s, onNotFound) {
             if(s instanceof Function)
             {
-                s = {onLookup : s};
+                s = {onFound : s};
             }
             s = jQuery.extend(true, {}, jQuery.zipLookupSettings, s);
             if(onNotFound instanceof Function)
@@ -44,7 +44,7 @@
             }
 
             if(!parseInt(zipVal))
-                throw "Invalid zipVal: "+ zipVal;
+                s.onNotFound("Invalid zip code: "+ zipVal);
             zipVal = parseInt(zipVal);
             var zipGroup = parseInt(zipVal / 100);
             var zipSet = parseInt(zipVal % 100);
@@ -58,10 +58,10 @@
                 cache: true,
                 success: function (data) {
                     if(data === undefined || data[0] === undefined)
-                        return s.onNotFound();
+                        return s.onNotFound("Zipcode Not Found in DB");
                     var cityID = data[0][zipSet];
                     if(data[1][cityID] === undefined)
-                        return s.onNotFound();
+                        return s.onNotFound("Zipcode Not Found in DB");
                     var cityData = data[1][cityID].split('|');
                     var cityName = cityData[0];
                     if(!cityData[1]) cityData[1] = 0;
@@ -69,10 +69,11 @@
                     var stateData = data[2][stateID].split('|');
                     var stateName = stateData[1];
                     var stateShortName = stateData[0];
-                    s.onLookup(cityName, stateName, stateShortName);
+                    s.onFound(cityName, stateName, stateShortName);
                 },
                 fail: function (jqXHR, textStatus){
                     s.onError(jqXHR, textStatus);
+                    s.onNotFound("Error: " + textStatus);
                 }
             });
 

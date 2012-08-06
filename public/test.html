@@ -14,8 +14,8 @@
                             $('input[name=state_short]').val(stateName);
                             $('input[name=state]').val(stateShortName);
                         },
-                        function(){
-                            $('.message').html("Zipcode Not Found");
+                        function(errMsg){
+                            $('.message').html("Error: " + errMsg);
                         });
                 });
             });
