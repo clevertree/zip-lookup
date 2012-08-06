@@ -5,18 +5,18 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" ></script>
         <script src="ziplookup/zipLookup.min.js" type="text/javascript"></script>
         <script type="text/javascript">
-            $(document).ready(function() {
-                $('[name=zipcode]').blur(function(){
-                    $.zipLookup(
-                        $(this).val(),
-                        function(cityName, stateName, stateShortName){
-                            $('input[name=city]').val(cityName);
-                            $('input[name=state_short]').val(stateName);
-                            $('input[name=state]').val(stateShortName);
-                            $('.message').html("Found Zipcode");
+            $(document).ready(function() {                                  // When the document loads,
+                $('[name=zipcode]').blur(function(){                        // Set on blur
+                    $.zipLookup(                                            // Do a Zip code Lookup
+                        $(this).val(),                                      // Zip code Field Value
+                        function(cityName, stateName, stateShortName){      // If Successful,
+                            $('input[name=city]').val(cityName);            // Set City name
+                            $('input[name=state_short]').val(stateName);    // Set State abbreviation
+                            $('input[name=state]').val(stateShortName);     // Set State name
+                            $('.message').html("Found Zipcode");            // Add a message
                         },
-                        function(errMsg){
-                            $('.message').html("Error: " + errMsg);
+                        function(errMsg){                                   // If Zip couldn't be found,
+                            $('.message').html("Error: " + errMsg);         // Add an error message
                         });
                 });
             });
