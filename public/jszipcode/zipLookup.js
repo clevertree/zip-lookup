@@ -16,7 +16,8 @@
             zipField: null,
             cityField: null,
             stateField: null,
-            libPath: 'jszipcode/',
+            libDirPath: null, // 'jszipcode/',
+            dbPath: 'db/',
             country: 'us',
             onLookup: function () {},
             onNotFound: function () {},
@@ -32,13 +33,23 @@
             if(onNotFound instanceof Function)
                 s.onNotFound = onNotFound;
 
+            if(s.libDirPath == null)
+            {
+				var libDirPath = $("script[src*='zipLookup.js'],script[src*='zipLookup.min.js']").attr('src');
+				if(libDirPath)
+				{
+					s.libDirPath = libDirPath.replace('zipLookup.js', '');
+				}
+				else s.libDirPath = 'jszipcode/';
+			}
+
             zipVal = parseInt(zipVal);
             if(!zipVal)
                 throw "Invalid zipVal: "+ zipField.val();
             var zipGroup = parseInt(zipVal / 100);
             var zipSet = parseInt(zipVal % 100);
 
-            var path = s.libPath + s.country + "/" + zipGroup + ".json";
+            var path = s.libDirPath + s.dbPath + s.country + "/" + zipGroup + ".json";
 
             $.ajax({
                 url: path,
