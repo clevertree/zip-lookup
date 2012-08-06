@@ -1,1 +1,0 @@
-__zl([{"1":0,"10":1,"11":2,"12":3,"14":4,"16":5,"17":6,"18":7,"19":8,"20":9,"21":10},["Valentine","Ainsworth","Cody","Crookston","Johnstown","Kilgore","Long Pine","Merriman","Nenzel","Sparks","Wood Lake"],["NE|Nebraska"]]);

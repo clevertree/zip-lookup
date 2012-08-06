@@ -1,1 +1,0 @@
-__zl([{"1":0,"2":0,"3":0,"20":1,"21":2,"23":3,"24":4,"25":5,"26":6,"27":7,"28":8,"29":9,"30":10,"31":11,"32":12,"34":13,"35":14},["Durango","Cahone","Cortez","Dolores","Dove Creek","Egnar","Hesperus","Lewis","Mancos","Marvel","Mesa Verde National Park","Pleasant View","Rico","Towaoc","Yellow Jacket"],["CO|Colorado"]]);

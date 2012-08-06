@@ -1,1 +1,0 @@
-__zl([{"8":0,"13":1,"21":2,"25":3,"26":4,"51":5,"59":6,"64":7,"65":8,"72":9,"77":10},["Cannel City","Crockett","Elkfork","Ezel","Falcon","Malone","Ophir","Royalton","Salyersville","West Liberty","Wrigley"],["KY|Kentucky"]]);
