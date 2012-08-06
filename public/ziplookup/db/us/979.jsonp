@@ -1,0 +1,1 @@
+__zl([{"1":0,"2":1,"3":2,"4":3,"5":4,"6":5,"7":6,"8":7,"9":8,"10":9,"11":10,"13":11,"14":12,"17":13,"18":14,"20":15},["Adrian","Arock","Brogan","Drewsey","Durkee","Harper","Huntington","Ironside","Jamieson","Jordan Valley","Juntura","Nyssa","Ontario","Riverside","Vale","Westfall"],["OR|Oregon"]]);
