@@ -1,0 +1,1 @@
+__zl([{"1":0,"2":0,"10":1,"12":2,"13":3,"15":4,"16":5,"17":6,"18":7,"19":8,"20":9,"21":10,"55":11,"61":12,"99":0},["Farmington","Aztec","Blanco","Bloomfield","Flora Vista","Fruitland","Kirtland","La Plata","Navajo Dam","Shiprock","Waterflow","Newcomb","Sanostee"],["NM|New Mexico"]]);

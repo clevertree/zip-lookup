@@ -43,17 +43,19 @@
 				else s.libDirPath = 'jszipcode/';
 			}
 
+            if(!parseInt(zipVal))
+                throw "Invalid zipVal: "+ zipVal;
             zipVal = parseInt(zipVal);
-            if(!zipVal)
-                throw "Invalid zipVal: "+ zipField.val();
             var zipGroup = parseInt(zipVal / 100);
             var zipSet = parseInt(zipVal % 100);
 
-            var path = s.libDirPath + s.dbPath + s.country + "/" + zipGroup + ".json";
+            var path = s.libDirPath + s.dbPath + s.country + "/" + zipGroup + ".jsonp";
 
             $.ajax({
                 url: path,
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonpCallback: '__zl',
+                cache: true,
                 success: function (data) {
                     if(data === undefined || data[0] === undefined)
                         return s.onNotFound();
