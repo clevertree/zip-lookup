@@ -34,9 +34,9 @@
                     s.libDirPath = 'ziplookup/';
             }
 
-            if(!parseInt(zipVal))                       // If not a valid zip, error
+            if(!parseInt(zipVal, 10))                       // If not a valid zip, error
                 return s.onNotFound("Invalid zip code: "+ zipVal);
-            zipVal = parseInt(zipVal);
+            zipVal = parseInt(zipVal, 10);
             var zipGroup = parseInt(zipVal / 100);      // Determine the zip group
             var zipSet = parseInt(zipVal % 100);        // Determine the zip set
 
