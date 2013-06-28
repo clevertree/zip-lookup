@@ -40,7 +40,7 @@
             var zipGroup = parseInt(zipVal / 100);      // Determine the zip group
             var zipSet = parseInt(zipVal % 100);        // Determine the zip set
 
-            var path = s.libDirPath + s.dbPath + s.country + "/" + zipGroup + ".jsonp";
+            var path = s.libDirPath + s.dbPath + s.country + "/" + zipGroup + ".js";
                                                         // Figure out the path to the zip group
 
             $.ajax({
