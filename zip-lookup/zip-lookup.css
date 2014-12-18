@@ -18,23 +18,19 @@ div.error { background-color: #edd; border-top: 3pt solid #ecc; }
 
 
 
+legend {
+    padding: 0 3pt;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+
 /** Form **/
 
 form {
     position: relative;
     font-family: monospace;
-}
-
-form > legend,
-fieldset > legend {
-    padding: 0 3pt;
-    margin-bottom: .5em;
-    font-weight: bold;
-}
-
-form > legend {
-    font-size: 1.5em;
-    margin-bottom: 1em;
 }
 
 form fieldset {
