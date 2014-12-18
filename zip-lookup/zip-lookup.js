@@ -80,7 +80,16 @@
         return true;
     };
 
+    var ascendDOM = function (elm, callback) {
+        var parent = elm.parentNode;
+        if(!parent)
+            return false;
+        if(callback)
+            if(callback(parent) === true)
+                return false;
 
+        return ascendDOM(parent, callback);
+    };
 
     var lookup = function(zipVal, country) {
         var THIS = this;
@@ -164,7 +173,16 @@
             case 'zip-lookup':
                 var zip = e.target ? e.target.value : null;
 
-                traverseDOM(e.target.form || document, function(elm) {
+                var container = e.target.form || document;
+                ascendDOM(e.target, function(elm) {
+                    if(elm.nodeName.toLowerCase() === 'fieldset'
+                        || elm === container) {
+                        container = elm;
+                        return true;
+                    }
+                });
+
+                traverseDOM(container, function(elm) {
                     if(hasClass(elm,  CLASS_MESSAGE)){
                         elm.innerHTML = "Searching...";
                         removeClass(elm, 'error');
@@ -173,7 +191,7 @@
 
                 lookup(zip)
                     .onError(function(error) {
-                        traverseDOM(e.target.form || document, function(elm) {
+                        traverseDOM(container, function(elm) {
                             if(hasClass(elm,  CLASS_MESSAGE)){
                                 elm.innerHTML = error;
                                 addClass(elm, 'error');
@@ -183,7 +201,7 @@
                         fireEvent(e.target, 'zip-lookup-error');
 
                     }).onSuccess(function (cityName, stateName, stateShortName) {
-                        traverseDOM(e.target.form || document, function(elm) {
+                        traverseDOM(container, function(elm) {
                             if(hasClass(elm,  CLASS_CITY))
                                 setValue(elm, cityName);
                             if(hasClass(elm,  CLASS_STATE)){
