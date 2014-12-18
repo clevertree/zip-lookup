@@ -5,28 +5,26 @@
  * Time: 10:13 AM
  */
 
-define("LIBPATH", dirname(getcwd()) .'/public/jszipcode/db/us/%s.jsonp');
+define("GROUP_LENGTH", 2);
+define("LIBPATH", dirname(__DIR__) .'/public/zip-lookup/db/us/%s.js');
 define("INDEX_ZIPS", 0);
 define("INDEX_CITIES", 1);
 define("INDEX_STATES", 2);
 define("JSONP_FUNC", "__zl");
 
-$pdo = new PDO(
-    'mysql:host=localhost;dbname=jszip',
-    'test',
-    'test');
+$PDO = new PDO('sqlite:zips.sqlite');
+$PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-//$sql = "SELECT `zi_zipcode` zip, `ci_name` city, `st_name` state, `st_short` short FROM `zipjoin` limit 20";
-$sql_group = "SELECT ROUND( zi_zipcode / 100 ) AS grp FROM  `zipjoin` GROUP BY grp ORDER BY grp ASC";
+//$sql = "SELECT `zip` zip, `city` city, `state` state, `st_short` short FROM `zipjoin` limit 20";
+$sql_group = "SELECT zip, SUBSTR( trim(zip), 1, " . GROUP_LENGTH . ") AS grp FROM  `zips` GROUP BY grp ORDER BY grp ASC";
 
-$sql_zips = "SELECT `zi_zipcode` zip, `ci_name` city, `st_name` state, `st_short` short FROM zipjoin
-    WHERE zi_zipcode between :min and :max ";
+$sql_zips = "SELECT zip, city, state, short, SUBSTR( zip, " . (GROUP_LENGTH + 1) . ") as subzip FROM zips WHERE SUBSTR( trim(zip), 1, " . GROUP_LENGTH . ") == :group ";
 
-$sth_zips = $pdo->prepare($sql_zips);
-foreach ($pdo->query($sql_group) as $grp)
+$sth_zips = $PDO->prepare($sql_zips);
+var_dump($PDO->query($sql_group));
+foreach ($PDO->query($sql_group) as $row)
 {
-    $grp['grp'] = intval($grp['grp']);
-    $params = array(':min' => $grp['grp'] * 100 , ':max' => ($grp['grp'] + 1) * 100 );
+    $params = array(':group' => $row['grp']); // ':min' => $grp['grp'] * 100 , ':max' => ($grp['grp'] + 1) * 100 );
     $result = $sth_zips->execute($params);
     $json = array();
     $stateLookup = array();
@@ -49,13 +47,13 @@ foreach ($pdo->query($sql_group) as $grp)
         }
         else $ctid = $cityLookup[$zip['city']][0];
 
-        $json[INDEX_ZIPS][($zip['zip'] % 100)] = $ctid;
+        $json[INDEX_ZIPS][$zip['subzip']] = $ctid;
     }
     foreach($cityLookup as $city => $data)
         $json[INDEX_CITIES][($data[0])] = $city.($data[1]==0 ? '' : '|'.$data[1]);
     foreach($stateLookup as $short => $data)
         $json[INDEX_STATES][($data[0])] = $data[1];
-    $path = sprintf(LIBPATH, $grp['grp']);
+    $path = sprintf(LIBPATH, $row['grp']);
     if(!file_exists(dirname($path)))
         mkdir(dirname($path), 777, true);
     file_put_contents($path, JSONP_FUNC."(".json_encode($json, JSON_NUMERIC_CHECK).");");
