@@ -1,0 +1,1 @@
+__zl([{"1":0,"2":0,"3":0,"11":0,"12":0,"20":1,"21":2,"24":3,"25":4,"26":5,"27":6,"29":7,"30":8,"32":9,"33":10,"35":11,"36":12,"40":13,"41":14,"50":0},["Juneau","Angoon","Auke Bay","Douglas","Elfin Cove","Gustavus","Haines","Hoonah","Kake","Pelican","Petersburg","Sitka","Port Alexander","Skagway","Tenakee Springs"],["AK|Alaska"]]);
