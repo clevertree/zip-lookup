@@ -7,6 +7,7 @@
  */
 
 (function() {
+    var DEBUG = false;
     var GROUP_LENGTH = 2;
 
     var CLASS_ZIPCODE = 'zip-lookup-field-zipcode';
@@ -68,6 +69,9 @@
     };
 
     var traverseDOM = function (elm, callback) {
+        if(elm === document)
+            elm = document.body;
+
         for(var i=0; i<elm.children.length; i++) {
             var child = elm.children[i];
             if(callback)
@@ -81,9 +85,9 @@
     };
 
     var ascendDOM = function (elm, callback) {
-        var parent = elm.parentNode;
-        if(!parent)
+        if(elm === document.body || elm === document)
             return false;
+        var parent = elm.parentNode;
         if(callback)
             if(callback(parent) === true)
                 return false;
@@ -97,10 +101,12 @@
 
         var head = document.getElementsByTagName('head')[0];
         var libDirPath = 'zip-lookup/db';
-        traverseDOM(document, function(elm) {
+        traverseDOM(head, function(elm) {
             if(elm.nodeName.toUpperCase() === 'SCRIPT') {
                 if(elm.getAttribute('src') && elm.getAttribute('src').match(/zip-lookup(?:\.min)?\.js$/i)) {
                     libDirPath = elm.getAttribute('src').replace(/zip-lookup(?:\.min)?\.js$/i, 'db');
+                    if(DEBUG)
+                        console.log("Library path set: " + libDirPath);
                     head = elm.parentNode;
                     return true;
                 }
