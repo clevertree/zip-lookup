@@ -120,11 +120,11 @@
         var onError = function(throwError) {};
         this.onError = function(callback) { onError = callback; return THIS; };
 
-        //if(!(zipVal = parseInt(zipVal, 10)))                       // If not a valid zip, error
+        //if(!(zipVal = parseInt(zipVal, 10)))                  // If not a valid zip, error
         //    throw new Error("Invalid zip code: "+ zipVal);
 
-        var zipGroup = zipVal.substring(0, GROUP_LENGTH);      // Determine the zip group
-        var zipSet = zipVal.substring(GROUP_LENGTH);        // Determine the zip set
+        var zipGroup = zipVal.substring(0, GROUP_LENGTH);       // Determine the zip group
+        var zipSet = zipVal.substring(GROUP_LENGTH);            // Determine the zip set
 
         var path = libDirPath + '/' + this.country + '/' + zipGroup + ".js";
         // Figure out the path to the zip group
@@ -143,10 +143,10 @@
         window['__zl'] = function(data) {
             clearTimeout(errorTimeout);
             if(data === undefined || data[0] === undefined)         // If no data returned, the file was probably 404
-                return onError("Zipcode Not Found in DB");   // Thus, zip is not in the db
+                return onError("Zipcode Not Found in DB");          // Thus, zip is not in the db
             var cityID = data[0][zipSet];                           // Look for the City ID in the dataset.
             if(data[1][cityID] === undefined)                       // If no city,
-                return onError("Zipcode City Not Found in DB");   // the zip is not in the db
+                return onError("Zipcode City Not Found in DB");     // the zip is not in the db
             var cityData = data[1][cityID].split('|');              // Split the city data into name and State ID
             var cityName = cityData[0];
             if(!cityData[1]) cityData[1] = 0;                       // If no State ID was added, this means its 0
@@ -161,16 +161,15 @@
 
     };
 
-
-    var lastVal = null;
     var eventHandler = function(e) {
         switch(e.type) {
             case 'blur':
             case 'change':
                 if(hasClass(e.target, CLASS_ZIPCODE)) {
                     var val = e.target.value;
+                    var lastVal = typeof e.target.lastVal === 'undefined' ? null : e.target.lastVal;
                     if(val && val !== lastVal) {
-                        lastVal = val;
+                        e.target.lastVal = val;
                         fireEvent(e.target, 'zip-lookup');
                     }
                 }
