@@ -1,1 +1,0 @@
-__zl([{"1":0,"2":0,"4":0,"5":0,"9":0,"15":1,"20":2,"30":3,"33":4,"35":5,"36":6,"37":7,"38":8,"39":9,"40":10,"42":11,"43":12,"44":13,"46":14,"48":15,"49":16},["Casper","Shirley Basin","Alcova","Arminto","Douglas","Edgerton","Evansville","Glenrock","Hiland","Kaycee","Linch","Lysite","Midwest","Mills","Natrona","Powder River","Shoshoni"],["WY|Wyoming"]]);
