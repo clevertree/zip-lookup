@@ -21,7 +21,7 @@ $sql_group = "SELECT zip, SUBSTR( trim(zip), 1, " . GROUP_LENGTH . ") AS grp FRO
 $sql_zips = "SELECT zip, city, state, short, SUBSTR( zip, " . (GROUP_LENGTH + 1) . ") as subzip FROM zips WHERE SUBSTR( trim(zip), 1, " . GROUP_LENGTH . ") == :group ";
 
 $sth_zips = $PDO->prepare($sql_zips);
-var_dump($PDO->query($sql_group));
+//var_dump($PDO->query($sql_group));
 foreach ($PDO->query($sql_group) as $row)
 {
     $params = array(':group' => $row['grp']); // ':min' => $grp['grp'] * 100 , ':max' => ($grp['grp'] + 1) * 100 );

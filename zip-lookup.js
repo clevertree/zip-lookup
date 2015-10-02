@@ -12,6 +12,7 @@
 
     var CLASS_ZIPCODE = 'zip-lookup-field-zipcode';
     var CLASS_CITY = 'zip-lookup-field-city';
+    var CLASS_CITY_TITLE_CASE = 'zip-lookup-field-city-title-case';
     var CLASS_STATE = 'zip-lookup-field-state';
     var CLASS_STATE_SHORT = 'zip-lookup-field-state-short';
     var CLASS_MESSAGE = 'zip-lookup-message';
@@ -161,6 +162,8 @@
 
     };
 
+    var messageElements = document.getElementsByClassName(CLASS_MESSAGE);
+
     var eventHandler = function(e) {
         switch(e.type) {
             case 'blur':
@@ -176,7 +179,7 @@
 
                 break;
             case 'zip-lookup':
-                var zip = e.target ? e.target.value : null;
+                var zip = e.target ? e.target.value.trim() : null;
 
                 var container = e.target.form || document;
                 ascendDOM(e.target, function(elm) {
@@ -186,33 +189,34 @@
                         return true;
                     }
                 });
+                for(var i=0; i<messageElements.length; i++) (function(elm) {
+                    elm.innerHTML = "Searching...";
+                    removeClass(elm, 'error');
+                })(messageElements[i]);
 
-                traverseDOM(container, function(elm) {
-                    if(hasClass(elm,  CLASS_MESSAGE)){
-                        elm.innerHTML = "Searching...";
-                        removeClass(elm, 'error');
-                    }
-                });
 
                 lookup(zip)
                     .onError(function(error) {
-                        traverseDOM(container, function(elm) {
-                            if(hasClass(elm,  CLASS_MESSAGE)){
-                                elm.innerHTML = error;
-                                addClass(elm, 'error');
-                            }
-                        });
                         e.target.setAttribute('zip-lookup-error-message', error);
                         fireEvent(e.target, 'zip-lookup-error');
+
+                        for(var i=0; i<messageElements.length; i++) (function(elm) {
+                            elm.innerHTML = error;
+                            addClass(elm, 'error');
+                        })(messageElements[i]);
 
                     }).onSuccess(function (cityName, stateName, stateShortName) {
                         traverseDOM(container, function(elm) {
                             if(hasClass(elm,  CLASS_CITY))
                                 setValue(elm, cityName);
+                            if(hasClass(elm,  CLASS_CITY_TITLE_CASE))
+                                setValue(elm, titleCase(cityName));
+
                             if(hasClass(elm,  CLASS_STATE)){
                                 setValue(elm, stateName);}
                             if(hasClass(elm,  CLASS_STATE_SHORT))
                                 setValue(elm, stateShortName);
+
                             if(hasClass(elm,  CLASS_MESSAGE)){
                                 elm.innerHTML = "Result found - " + cityName + ', ' + stateShortName;
                                 removeClass(elm, 'error');
@@ -223,6 +227,12 @@
                         e.target.setAttribute('data-state-name', stateName);
                         e.target.setAttribute('data-state-short-name', stateShortName);
                         fireEvent(e.target, 'zip-lookup-found');
+
+                        for(var i=0; i<messageElements.length; i++) (function(elm) {
+                            elm.innerHTML = "Found " + titleCase(cityName) + ", " + stateName;
+                            removeClass(elm, 'error');
+                        })(messageElements[i]);
+
                     });
                 break;
             default:
@@ -233,4 +243,11 @@
     document.addEventListener('change', eventHandler);
     document.addEventListener('zip-lookup', eventHandler);
 
+
+    function titleCase(str) {
+        return str.toLowerCase()
+            .replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, function($1) {
+                return $1.toUpperCase();
+            });
+    }
 })();
