@@ -1,0 +1,78 @@
+/** Body **/
+
+body {
+    font-family: monospace;
+    color: #444;
+}
+
+.info  { color: yellowgreen; font-style: italic;  }
+.error  { color: darkred; font-weight: bold; font-style: italic;  }
+
+div.info
+div.error {
+    padding: 2em;
+    margin: 1em;
+    border-radius: 4pt;
+}
+div.error { background-color: #edd; border-top: 3pt solid #ecc; }
+
+
+
+legend {
+    padding: 0 3pt;
+    font-weight: bold;
+    font-size: 1.5em;
+    /*margin-bottom: 1em;*/
+}
+
+
+/** Form **/
+
+form {
+    position: relative;
+    font-family: monospace;
+}
+
+form fieldset {
+    border-radius: 4px;
+    border: 2pt solid #ccc;
+    margin-bottom: 20pt;
+}
+
+form button + div,
+form input + div,
+form select + div,
+form textarea + div {
+     margin-top: 10pt;
+ }
+
+
+form button,
+form select,
+form textarea,
+form input:not([type]),
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    width: 10em;
+}
+
+
+form button,
+form select,
+form textarea,
+form input {
+    /*border: 1px solid #ccc;*/
+    padding: 5pt 5pt;
+}
+
+
+form input.zip-lookup-field-state {
+    width: 6em;
+}
+form input.zip-lookup-field-state-short {
+    width: 2em;
+}
