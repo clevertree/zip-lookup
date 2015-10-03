@@ -1,5 +1,5 @@
 /*
- * jQuery.zipLookup v0.1
+ * jQuery.zipLookup v0.2
  *   - by Ari Asulin (ari.asulin at gmail.com)
  *   - New permanent url for zero-installation users: http://protricity.github.io/zip-lookup/zip-lookup.js
  *   - New Demo page: http://protricity.github.io/zip-lookup/
