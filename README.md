@@ -4,7 +4,7 @@ zip-lookup is a lightweight JSON based (no database) look-up script that uses a 
 
 *Test it out here*:
 ----------
-http://protricity.github.io/zip-lookup/index.html
+http://clevertree.github.io/zip-lookup/index.html
 
 
 No installation required
@@ -12,7 +12,7 @@ No installation required
 
 *To use it on your form*, simply include 
 {{{
-<script src="http://protricity.github.io/zip-lookup/zip-lookup.min.js" type="text/javascript" ></script>
+<script src="http://clevertree.github.io/zip-lookup/zip-lookup.min.js" type="text/javascript" ></script>
 }}}
 
 in your html header.
@@ -40,7 +40,7 @@ Example
     <head>
         <title>Test zipLookup</title>
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-        <script src="http://protricity.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>
+        <script src="http://clevertree.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>
     </head>
     <body>
         <form>
@@ -63,8 +63,8 @@ Example
 Updates
 ----------
 
- * New permanent url for zero-installation users: http://protricity.github.io/zip-lookup/zip-lookup.js
- * New Demo page: http://protricity.github.io/zip-lookup/
+ * New permanent url for zero-installation users: http://clevertree.github.io/zip-lookup/zip-lookup.js
+ * New Demo page: http://clevertree.github.io/zip-lookup/
  * Re-wrote db gen script in node.js. Fixed 0XXXX bug. Fixed default city bug.
  * Removed jQuery dependency
  * Code/DB cleanup
