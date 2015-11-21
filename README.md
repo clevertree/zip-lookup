@@ -1,14 +1,15 @@
-=zip-lookup=
+# zip-lookup
 
 zip-lookup is a lightweight JSON based (no database) look-up script that uses a pre-configured list of json files to perform a zip-code look-up on (nearly) all available zip-codes. Simply add this library anywhere you have an address form in your websites and make your client's lives a little easier!
+==========
 
 *Test it out here*:
-
+----------
 http://protricity.github.io/zip-lookup/index.html
 
-----
 
-==No installation required==
+No installation required
+----------
 
 *To use it on your form*, simply include 
 {{{
@@ -31,9 +32,9 @@ class='zip-lookup-field-state-short' => gets updated with state short name
 
 *It's that easy*! When the zip-code is found, the city, state and state abbreviation will be updated. 
 
-==Example==
+Example
+----------
 
-Example:
 {{{
 <!DOCTYPE html>
 <html lang="en">
@@ -60,31 +61,30 @@ Example:
 }}}
 
 
-==Updates==
+Updates
+----------
 
-New permanent url for zero-installation users: http://protricity.github.io/zip-lookup/zip-lookup.js
+ * New permanent url for zero-installation users: http://protricity.github.io/zip-lookup/zip-lookup.js
+ * New Demo page: http://protricity.github.io/zip-lookup/
+ * Re-wrote db gen script in node.js. Fixed 0XXXX bug. Fixed default city bug.
+ * Removed jQuery dependency
+ * Code/DB cleanup
+ * Event driven js
 
-New Demo page: http://protricity.github.io/zip-lookup/
-
-Re-wrote db gen script in node.js. Fixed 0XXXX bug. Fixed default city bug.
-
-Removed jQuery dependency
-
-Code/DB cleanup
-
-Event driven js
-
-==Dependencies==
+Dependencies
+----------
 
 None
 
-==Authentication==
+Authentication
+----------
 
 It is not recommended to use this library for authentication of zip-codes. The primary reason is that zip-codes are added all the time, and someone's zip-code may not exist in this database in real-time.
 
 
-==little something for the effort==
+little something for the effort
+----------
 
-BTC: 1AT6o3mmPRZVdzXPh7SbThgAhv9g4o3j92
+ * BTC: 1AT6o3mmPRZVdzXPh7SbThgAhv9g4o3j92
 
-PP: ari at asu dot edu
+ * PP: ari at asu dot edu
