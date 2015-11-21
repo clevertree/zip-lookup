@@ -1,7 +1,6 @@
 # zip-lookup
 
 zip-lookup is a lightweight JSON based (no database) look-up script that uses a pre-configured list of json files to perform a zip-code look-up on (nearly) all available zip-codes. Simply add this library anywhere you have an address form in your websites and make your client's lives a little easier!
-==========
 
 *Test it out here*:
 ----------
