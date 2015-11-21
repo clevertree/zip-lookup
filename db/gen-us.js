@@ -1,5 +1,7 @@
 /**
  * Created by ari on 10/2/2015.
+ *
+ * This script downloads and parses a zipcode database, and generates look up files. 
  */
 
 var http =      require('http'),
