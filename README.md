@@ -11,30 +11,33 @@ No installation required
 ----------
 
 *To use it on your form*, simply include 
-{{{
+
 <script src="http://clevertree.github.io/zip-lookup/zip-lookup.min.js" type="text/javascript" ></script>
-}}}
+----------
 
 in your html header.
 
 The script will listen for changes to any form field with the class 
-{{{
+
 class='zip-lookup-field-zipcode'
-}}}
+----------
+
 and will attempt to look up the zipcode on change. 
 The script will then update nearby fields with the following classes: 
-{{{
+
 class='zip-lookup-field-city' => gets updated with city name
+----------
 class='zip-lookup-field-state' => gets updated with state full name
+----------
 class='zip-lookup-field-state-short' => gets updated with state short name
-}}}
+----------
+
 
 *It's that easy*! When the zip-code is found, the city, state and state abbreviation will be updated. 
 
 Example
 ----------
 
-{{{
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -56,8 +59,6 @@ Example
         </form>
     </body>
 </html>
-
-}}}
 
 
 Updates
