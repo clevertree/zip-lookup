@@ -35,27 +35,27 @@ The script will then update nearby fields with the following classes:
 Example
 ----------
 
-`<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Test zipLookup</title>
-        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-        <script src="http://clevertree.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <form>
-            <legend>Test zip-lookup</legend>
-            <div>Enter ZipCode:</div>
-            <input type='text' name='zipcode' class='zip-lookup-field-zipcode' />
-            <div>Enter City:</div>
-            <input type='text' name='city' class='zip-lookup-field-city' /> 
-            <div>Enter State:</div>
-            <input type='text' name='state' class='zip-lookup-field-state' />
-            <input type='text' name='state-short' class='zip-lookup-field-state-short' /> 
-            <div class="zip-lookup-message info">Status</div>
-        </form>
-    </body>
-</html>`
+`<!DOCTYPE html>`
+`<html lang="en">`
+    `<head>`
+        `<title>Test zipLookup</title>`
+        `<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />`
+        `<script src="http://clevertree.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>`
+    `</head>`
+    `<body>`
+        `<form>`
+            `<legend>Test zip-lookup</legend>`
+            `<div>Enter ZipCode:</div>`
+            `<input type='text' name='zipcode' class='zip-lookup-field-zipcode' />`
+            `<div>Enter City:</div>`
+            `<input type='text' name='city' class='zip-lookup-field-city' />`
+            `<div>Enter State:</div>`
+            `<input type='text' name='state' class='zip-lookup-field-state' />`
+            `<input type='text' name='state-short' class='zip-lookup-field-state-short' />`
+            `<div class="zip-lookup-message info">Status</div>`
+        `</form>`
+    `</body>`
+`</html>`
 
 
 Updates
