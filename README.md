@@ -35,7 +35,7 @@ The script will then update nearby fields with the following classes:
 Example
 ----------
 
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Test zipLookup</title>
@@ -55,7 +55,7 @@ Example
             <div class="zip-lookup-message info">Status</div>
         </form>
     </body>
-</html>
+</html>`
 
 
 Updates
