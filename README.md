@@ -35,7 +35,8 @@ The script will then update nearby fields with the following classes:
 Example
 ----------
 
-`<!DOCTYPE html>
+`
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -75,7 +76,8 @@ Example
         
     </body>
     
-</html>`
+</html>
+`
 
 
 Updates
