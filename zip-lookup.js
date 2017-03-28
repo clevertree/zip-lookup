@@ -211,6 +211,7 @@
                         })(messageElements[i]);
 
                     }).onSuccess(function (cityName, stateName, stateShortName) {
+                        console.info("Location Chosen: ", zip, cityName, stateName, stateShortName);
                         traverseDOM(container, function(elm) {
                             if(hasClass(elm,  CLASS_CITY))
                                 setValue(elm, cityName);
