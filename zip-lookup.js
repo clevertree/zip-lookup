@@ -129,8 +129,14 @@
         //if(!(zipVal = parseInt(zipVal, 10)))                  // If not a valid zip, error
         //    throw new Error("Invalid zip code: "+ zipVal);
 
-        var zipGroup = zipVal.substring(0, GROUP_LENGTH);       // Determine the zip group
-        var zipSet = zipVal.substring(GROUP_LENGTH);            // Determine the zip set
+        if (country == "uk") {
+            var groupLength = zipVal.search(/\d/);
+            var zipGroup = zipVal.substr(0, groupLength);                               // Determine the zip group
+            var zipSet = zipVal.substr(groupLength, zipVal.search(" ") - groupLength);  // Determine the zip set
+        } else {
+            var zipGroup = zipVal.substring(0, GROUP_LENGTH);       // Determine the zip group
+            var zipSet = zipVal.substring(GROUP_LENGTH);            // Determine the zip set
+        }
 
         var path = libDirPath + '/' + this.country + '/' + zipGroup + ".js";
         // Figure out the path to the zip group
