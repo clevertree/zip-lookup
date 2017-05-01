@@ -3,3 +3,4 @@
  */
 
 require('./db/gen-us.js').genUS();
+require('./db/gen-uk.js').genUK();
