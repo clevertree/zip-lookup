@@ -32,52 +32,74 @@ The script will then update nearby fields with the following classes:
 
 *It's that easy*! When the zip-code is found, the city, state and state abbreviation will be updated. 
 
-Example
+Example: Simple Form
 ----------
 
-`
+```
 <!DOCTYPE html>
 
 <html lang="en">
-
     <head>
-    
         <title>Test zipLookup</title>
-        
         <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
-        
         <script src="http://clevertree.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>
-        
     </head>
-    
     <body>
-    
         <form>
-        
             <legend>Test zip-lookup</legend>
-            
             <div>Enter ZipCode:</div>
-            
             <input type='text' name='zipcode' class='zip-lookup-field-zipcode' />
-           
             <div>Enter City:</div>
-            
             <input type='text' name='city' class='zip-lookup-field-city' />
-            
             <div>Enter State:</div>
-            
             <input type='text' name='state' class='zip-lookup-field-state' />
-            
             <input type='text' name='state-short' class='zip-lookup-field-state-short' />
-            
             <div class="zip-lookup-message info">Status</div>
-            
         </form>
-        
     </body>
-    
 </html>
-`
+```
+
+
+Example: 2 Sets of Fields
+----------
+
+```
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Test zipLookup</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <script src="http://clevertree.github.io/zip-lookup/zip-lookup.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <form>
+            <div class="zip-lookup-message info">Status</div>
+            <fieldset>
+                <legend>1st set of fields</legend>
+                <div>Enter ZipCode:</div>
+                <input type='text' name='zipcode' class='zip-lookup-field-zipcode' />
+                <div>Enter City:</div>
+                <input type='text' name='city' class='zip-lookup-field-city' />
+                <div>Enter State:</div>
+                <input type='text' name='state' class='zip-lookup-field-state' />
+                <input type='text' name='state-short' class='zip-lookup-field-state-short' />
+            </fieldset>
+            <fieldset>
+                <legend>2nd set of fields</legend>
+                <div>Enter ZipCode #2:</div>
+                <input type='text' name='zipcode2' class='zip-lookup-field-zipcode' />
+                <div>Enter City #2:</div>
+                <input type='text' name='city2' class='zip-lookup-field-city' />
+                <div>Enter State #2:</div>
+                <input type='text' name='state2' class='zip-lookup-field-state' />
+                <input type='text' name='state2-short' class='zip-lookup-field-state-short' />
+            </fieldset>
+        </form>
+    </body>
+</html>
+```
 
 
 Updates
